@@ -176,6 +176,6 @@ th, td {
     display: block;
 }
 
-.studentProps:not(.show), .employeeProps:not(.show), .customerProps:not(.show) {
+.studentProps:not(.show), .employeeProps:not(.show), .customerProps:not(.show), .averScore:not(.show), .salary:not(.show){
     display: none;
 }

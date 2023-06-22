@@ -61,8 +61,8 @@
                         <h6 class="page-title mb-0">Users List</h6>
                     </div>
                     <div class="col-auto ms-auto p-0">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                            data-bs-target="#userModal" id="btnUserModal" >Add User</button>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#userModal"
+                            id="btnUserModal">Add User</button>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
@@ -73,7 +73,8 @@
                                 <option value="Employee">Employee</option>
                                 <option value="Customer">Customer</option>
                             </select>
-                            <input id="userSearch" type="text" class="form-control" placeholder="Search for users..." onkeyup="searchPerson()">
+                            <input id="userSearch" type="text" class="form-control" placeholder="Search for users..."
+                                onkeyup="searchPerson()">
                         </div>
                     </div>
                 </div>
@@ -83,11 +84,12 @@
                             <th scope="col">
                                 <span class="table__title">ID</span>
                             </th>
-                            <th scope="col" class="d-flex justify-content-between align-content-between" onclick="sortTable(0)">
+                            <th scope="col" class="d-flex justify-content-between align-content-between"
+                                onclick="sortTable(0)">
                                 <span class="table__title">User Name</span>
                                 <span class="table__sorter"><i class="fa fa-sort"></i></span>
                             </th>
-                            <th scope="col"  onclick="sortTable(1)">
+                            <th scope="col" onclick="sortTable(1)">
                                 <span class="table__title">Position</span>
                                 <span class="table__sorter d-inline-block float-end"><i class="fa fa-sort"></i></span>
                             </th>
@@ -170,6 +172,10 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3 averScore">
+                            <label for="email" class="form-label">Average Score</label>
+                            <input type="text" class="form-control" id="averScore" readonly>
+                        </div>
 
                         <!-- Employee Properties -->
                         <div class="employeeProps">
@@ -183,6 +189,11 @@
                                 <input type="number" class="form-control" id="dailyWage" placeholder="Daily Wage"
                                     min="0" required>
                             </div>
+                        </div>
+
+                        <div class="mb-3 salary">
+                            <label for="email" class="form-label">Total Salary</label>
+                            <input type="text" class="form-control" id="salary" readonly>
                         </div>
 
                         <!-- Customer Properties -->

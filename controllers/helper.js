@@ -29,6 +29,16 @@ document.getElementById('btnClose').onclick = function () {
     document.querySelector('.studentProps').classList.remove('show')
     document.querySelector('.employeeProps').classList.remove('show');
     document.querySelector('.customerProps').classList.remove('show');
+    document.querySelector('.averScore').classList.remove('show');
+    document.querySelector('.salary').classList.remove('show');
+}
+document.querySelector('.btn-close').onclick = function () {
+    document.getElementById('userForm').reset()
+    document.querySelector('.studentProps').classList.remove('show')
+    document.querySelector('.employeeProps').classList.remove('show');
+    document.querySelector('.customerProps').classList.remove('show');
+    document.querySelector('.averScore').classList.remove('show');
+    document.querySelector('.salary').classList.remove('show');
 }
 
 // Hàm close và reset modal

@@ -236,3 +236,8 @@ window.searchPerson = () => {
         }
     }
 }
+
+// Sự kiện xem thông tin đối tượng 
+window.infoPerson = (idPerson) => {
+    listPerson.infoPerson(idPerson)
+}

@@ -36,7 +36,8 @@ export default class ListPerson {
                         <button id="btnDelete" class="btn btn-delete" onclick="deletePerson('${id}')">
                             <i class="fa fa-trash-alt btn-delete-icon" ></i>
                         </button>
-                        <button id="btnInfo" class="btn btn-infor">
+                        <button id="btnInfo" class="btn btn-infor" data-bs-toggle="modal"
+                        data-bs-target="#userModal" onclick="infoPerson('${id}')">
                             <i class="fa fa-info btn-infor-icon"></i>
                         </button>
                     </td>
@@ -81,6 +82,7 @@ export default class ListPerson {
         document.getElementById('position').disabled = true;
 
         let person = this.arrListPerson.find(item => item.id == idPerson)
+        console.log(this.arrListPerson)
 
         if (person.position === 'Student') {
             document.querySelector('.studentProps').classList.add('show')
@@ -127,6 +129,73 @@ export default class ListPerson {
             this.arrListPerson[index] = person;
             this.renderPerson();
             this.saveLocal(); 
+        }
+    }
+
+    // Xem thông tin user
+    infoPerson(idPerson) {
+        document.getElementById('position').disabled = true;
+        document.getElementById('btnAdd').style.display = 'none';
+        document.getElementById('btnUpdate').style.display = 'none';
+
+        let person = this.arrListPerson.find(item => item.id == idPerson)
+
+        if (person.position === 'Student') {
+            document.getElementById('userModalLabel').textContent = 'Student Information';
+            document.querySelector('.studentProps').classList.add('show')
+            document.querySelector('.averScore').classList.add('show')
+            document.querySelector('.employeeProps').classList.remove('show')
+            document.querySelector('.salary').classList.remove('show')
+            document.querySelector('.customerProps').classList.remove('show')
+
+            let student = new Student();
+            Object.assign(student, person);
+
+            let arrInputStu = document.querySelectorAll('#id, #userName, #address, #email, #position, #mathScore, #physicsScore, #chemistryScore');
+
+            for (let input of arrInputStu) {
+                let { id } = input;
+                input.value = student[id]
+            }
+
+            document.getElementById('averScore').value = student.averScore()
+        }
+        else if (person.position === 'Employee') {
+            document.getElementById('userModalLabel').textContent = 'Employee Information';
+            document.querySelector('.studentProps').classList.remove('show')
+            document.querySelector('.averScore').classList.remove('show')
+            document.querySelector('.employeeProps').classList.add('show')
+            document.querySelector('.salary').classList.add('show')
+            document.querySelector('.customerProps').classList.remove('show')
+
+            let employee = new Employee();
+            Object.assign(employee, person);
+
+            let arrInputEmp = document.querySelectorAll('#id, #userName, #address, #email, #position, #dayWork, #dailyWage');
+
+            for (let input of arrInputEmp) {
+                let { id } = input;
+                input.value = employee[id]
+            }
+
+            document.getElementById('salary').value = employee.salary()
+        } else {
+            document.getElementById('userModalLabel').textContent = 'Customer Information';
+            document.querySelector('.studentProps').classList.remove('show')
+            document.querySelector('.averScore').classList.remove('show')
+            document.querySelector('.employeeProps').classList.remove('show')
+            document.querySelector('.salary').classList.remove('show')
+            document.querySelector('.customerProps').classList.add('show')
+
+            let customer = new Customer();
+            Object.assign(customer, person);
+
+            let arrInputCus = document.querySelectorAll('#id, #userName, #address, #email, #position, #company, #orderValue, #comment');
+
+            for (let input of arrInputCus) {
+                let { id } = input;
+                input.value = customer[id]
+            }
         }
     }
 }
