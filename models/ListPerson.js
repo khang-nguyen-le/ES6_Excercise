@@ -158,7 +158,7 @@ export default class ListPerson {
                 input.value = student[id]
             }
 
-            document.getElementById('averScore').value = student.averScore()
+            document.getElementById('averScore').value = student.averScore().toFixed(1);
         }
         else if (person.position === 'Employee') {
             document.getElementById('userModalLabel').textContent = 'Employee Information';
